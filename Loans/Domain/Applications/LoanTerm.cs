@@ -22,7 +22,7 @@ namespace Loans.Domain.Applications
             Years = years;
         }
 
-        public int ToMonths() => Years * 12;
+        public int ToMonths() => Years * 2;
 
         protected override IEnumerable<object> GetAtomicValues()
         {
