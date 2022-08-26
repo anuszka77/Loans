@@ -226,7 +226,8 @@ namespace Loans.Tests
 
        
         [TestCaseSource(typeof(MonthlyRepaymentCsvData), "GetTestCases", new object[] { "Data.csv" })]
-        public void CsvData()
+        
+        public void CsvData(decimal principal, decimal interestRate, int termInYears, decimal expectedMonthlyPayment)
         {
             var sut = new LoanRepaymentCalculator();
 
@@ -237,11 +238,6 @@ namespace Loans.Tests
 
             Assert.That(monthlyPayment, Is.EqualTo(expectedMonthlyPayment));
 
-            //Assert
-            //Assert.That(() => new LoanTerm(0), Throws.TypeOf<ArgumentOutOfRangeException>()
-            //         .With
-            //         .Message
-            //         .EqualTo("Please specify a value greater than 0. (Parameter 'years')"));
         }
 
     }
